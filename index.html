@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
+    <link rel="stylesheet" href="./css/index.css">
+
+    
+
+</head>
+<body>
+    <div id='app'>
+        <h1>Daily To-DO list manager</h1>
+        <div class="todo-warpper">
+            <h2>
+                <span id="getDay">1</span><br>
+                <span id="getDate">2</span>
+            </h2>
+            <form>
+                <input type="text" placeholder="Take the garbage out">
+                <button class="btn-add">+</button>
+            </form>
+            <div>
+                <p class="status-free">
+                    <img src="./images/beer celebration.svg" alt="">
+                    Time to chill!  You have no todos.
+                </p>
+            </div>
+            <div>
+                <p class="status-busy"></p>
+                <ul class="todo-list">
+                    <li>
+                        <span></span>
+                        <span class="todo-text">122</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+
+
+    <script src="./js/index.js"></script>
+</body>
+</html>
