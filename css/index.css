@@ -27,7 +27,7 @@ h1 {
     width: 400px;
     min-height: 500px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: #f4f7fc;
     padding: 40px 20px;
     border-radius: 6px;
 
@@ -52,10 +52,25 @@ form input {
     height: 36px;
     border-radius: 4px;
     border: 1px solid #ddd;
-   
     padding: 2px 16px;
     font-size: 16px;
+    transition: all .5s;
+    
 }
+
+form input:focus     {
+    border-color: #a3b1ff;
+    transition: all .5s;
+}
+
+form input::-webkit-input-placeholder {
+    color: #444;
+}
+
+form input::-moz-placeholder {
+    color: #444;
+}
+
 
 .btn-add {
     width: 16%;
@@ -68,6 +83,10 @@ form input {
     font-size: 32px;
     vertical-align: top;
     font-weight: 600;
+}
+
+ .btn-active {
+    background-color: red !important;
 }
 
 .status-free {
@@ -90,13 +109,53 @@ form input {
 .todo-list li {
     height: 44px;
     padding: 12px;
-    background-color: skyblue;
+    background-color: #e0e8f5;
     box-sizing: border-box;
+    position: relative;
+}
+
+.todo-list li span {
+    vertical-align: top;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
 }
 
 .todo-list li span:first-child {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
+    width: 20px;
     background-color: #fff;
 }
+
+.todo-list li span:nth-child(2) {
+    padding: 0 12px;
+}
+
+.todo-list li span:last-child {
+    width: 0px;
+    height: 44px;
+    line-height: 44px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    background-color: #f56468;
+    overflow: hidden;
+
+}
+
+.delete {
+    transition: all .5s;
+    -webkit-transition: all .5s;
+}
+
+.todo-list li:hover .delete {
+    width: 44px;
+    transition: width .5s;
+    -webkit-transition: width .5s;
+}
+
+.delete i {
+    color: #ddd;
+}
+
+
