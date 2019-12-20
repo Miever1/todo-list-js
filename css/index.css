@@ -42,12 +42,12 @@ h2 span {
     font-weight: normal;
 }
 
-form {
+.info-box {
     padding: 15px 0;
     height: 42px;
 }
 
-form input {
+.info-box input {
     width: 70%;
     height: 36px;
     border-radius: 4px;
@@ -58,21 +58,21 @@ form input {
     
 }
 
-form input:focus     {
+.info-box input:focus     {
     border-color: #a3b1ff;
     transition: all .5s;
 }
 
-form input::-webkit-input-placeholder {
+.info-box input::-webkit-input-placeholder {
     color: #444;
 }
 
-form input::-moz-placeholder {
+.info-box input::-moz-placeholder {
     color: #444;
 }
 
 
-.btn-add {
+#btn-add {
     width: 16%;
     height: 40px;
     margin-left: 2%;
@@ -102,16 +102,13 @@ form input::-moz-placeholder {
     width: 50px;
 }
 
-.todo-list {
-    background-color: pink;
-}
-
 .todo-list li {
     height: 44px;
     padding: 12px;
     background-color: #e0e8f5;
     box-sizing: border-box;
     position: relative;
+    margin: 10px 0;
 }
 
 .todo-list li span {
