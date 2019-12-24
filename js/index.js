@@ -54,18 +54,18 @@ function settingTime() {
     dayShow.innerHTML = time[1];        
 }
 
+let idNum = 0;
 $("#btn-add").onclick = function() {
+    $(".status-free")[0].style.display = "none";
     let msg = $("#input-todo").value;
     let childLi = document.createElement("li");
     let childSpan = document.createElement("span");
     let childSpan1 = document.createElement("span");
     let childSpan2 = document.createElement("span");
     let del_icon = document.createElement("i");
-    let list = $(".todo-list")[0];
-    let list_length = list.getElementsByTagName("li").length;
-    let itemId = "item" + list_length;
+    let itemId = "item" + idNum;
+    idNum ++;
     childLi.setAttribute("id",itemId);
-    $(".status-busy")[0].innerText = "You have " + (list_length + 1) + " pending items";
     childSpan1.className = "todo-text";
     childSpan2.className = "delete";
     childSpan2.setAttribute("id",itemId + "-del");
@@ -76,7 +76,27 @@ $("#btn-add").onclick = function() {
     childLi.appendChild(childSpan1);    
     childLi.appendChild(childSpan2);   
     $(".todo-list")[0].appendChild(childLi);
+    childSpan2.addEventListener('click',function () { 
+        let deleteId = this.id.replace('-del','');
+        let delItem = $("#" + deleteId);
+        delItem.parentNode.removeChild(delItem);
+    })
 }
+
+
+setInterval(() => {
+    let list = $(".todo-list")[0];
+    let list_length = list.getElementsByTagName("li").length;
+    if(list_length == 0) {
+        $(".status-free")[0].style.display = "block";
+        $(".status-busy")[0].style.display = "none";
+    }
+    else if(list_length != 0) {
+        $(".status-busy")[0].style.display = "block";
+        $(".status-busy")[0].innerText = "You have " + list_length + " pending items";
+    }
+}, 100);
+
 
 
 
