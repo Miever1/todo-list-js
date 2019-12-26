@@ -1,157 +1,229 @@
 body {
-    background: linear-gradient(#fc6c48 0%, #ef5081 100%);
-    height:1300px;
-    padding: 50px 20px;
-    font-family: 'Open Sans', sans-serif;
-    color: #444;
+  background: linear-gradient(#fc6c48 0%, #ef5081 100%);
+  min-height: 100vh;
+  padding: 0 20px;
+  font-family: "Open Sans", sans-serif;
+  color: #444;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    margin: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }
 
 ul {
-    padding: 0;
+  padding: 0;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
 h1 {
-    text-align: center;
-    color: #fff;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+}
+
+#app {
+  padding-top: 70px;
 }
 
 .todo-warpper {
-    width: 400px;
-    min-height: 500px;
-    margin: 50px auto;
-    background-color: #f4f7fc;
-    padding: 40px 20px;
-    border-radius: 6px;
-
+  width: 400px;
+  min-height: 500px;
+  margin: 40px auto;
+  background-color: #f4f7fc;
+  padding: 40px 20px;
+  border-radius: 6px;
+  position: relative;
+  box-sizing: border-box;
 }
 
 h2 {
-    margin: 15px 0;
+  margin: 15px 0;
+  font-size: 1.2em;
+  font-weight: normal;
 }
 
 h2 span {
-    color: #f65c65;
-    font-weight: normal;
+  color: #f65c65;
+  font-weight: normal;
 }
 
 .info-box {
-    padding: 15px 0;
-    height: 42px;
+  padding: 15px 0;
+  height: 42px;
 }
 
 .info-box input {
-    width: 70%;
-    height: 36px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-    padding: 2px 16px;
-    font-size: 16px;
-    transition: all .5s;
-    
+  width: 68%;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  padding: 2px 16px;
+  font-size: 16px;
+  transition: all 0.5s;
 }
 
-.info-box input:focus     {
-    border-color: #a3b1ff;
-    transition: all .5s;
+.info-box input:focus {
+  border-color: #a3b1ff;
+  transition: all 0.5s;
 }
 
 .info-box input::-webkit-input-placeholder {
-    color: #444;
+  color: #444;
 }
 
 .info-box input::-moz-placeholder {
-    color: #444;
+  color: rgba(0, 0, 0, 0.3);
+  font-style: italic;
 }
-
 
 #btn-add {
-    width: 16%;
-    height: 40px;
-    margin-left: 2%;
-    background-color: #ddd;
-    border: none;
-    border-radius: 3px;
-    color: #fefefe;
-    font-size: 32px;
-    vertical-align: top;
-    font-weight: 600;
+  width: 18%;
+  height: 40px;
+  margin-left: 2%;
+  background-color: #ddd;
+  border: none;
+  border-radius: 3px;
+  color: #fefefe;
+  font-size: 32px;
+  vertical-align: top;
+  font-weight: 600;
 }
 
- .btn-active {
-    background-color: red !important;
+.btn-active {
+  background-color: red !important;
 }
 
 .status-free {
-    padding: 40px 0;
-    text-align: center;
-    font-weight: bold;
-    display: none;
+  margin: 0;
+  padding: 40px 0;
+  text-align: center;
+  font-weight: bold;
+  display: none;
 }
 
 .status-free img {
-    display: block;
-    margin: 10px auto;
-    width: 50px;
+  display: block;
+  margin: 10px auto;
+  width: 50px;
 }
 
 .todo-list li {
-    height: 44px;
-    padding: 12px;
-    background-color: #e0e8f5;
-    box-sizing: border-box;
-    position: relative;
-    margin: 10px 0;
+  height: 44px;
+  padding: 12px;
+  background-color: #e0e8f5;
+  box-sizing: border-box;
+  position: relative;
+  margin: 10px 0;
 }
 
 .todo-list li span {
-    vertical-align: top;
-    display: inline-block;
-    height: 20px;
-    line-height: 20px;
+  vertical-align: top;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
 }
 
 .todo-list li span:first-child {
-    width: 20px;
-    background-color: #fff;
+  width: 20px;
+  background-color: #fff;
 }
 
 .todo-list li span:nth-child(2) {
-    padding: 0 12px;
+  padding: 0 12px;
 }
 
 .todo-list li span:last-child {
-    width: 0px;
-    height: 44px;
-    line-height: 44px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    text-align: center;
-    background-color: #f56468;
-    overflow: hidden;
+  width: 0px;
+  height: 44px;
+  line-height: 44px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+  background-color: #f56468;
+  overflow: hidden;
 }
 
 .delete {
-    transition: all .5s;
-    -webkit-transition: all .5s;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 
 .todo-list li:hover .delete {
-    width: 44px;
-    transition: width .5s;
-    -webkit-transition: width .5s;
+  width: 44px;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;
 }
 
 .delete i {
-    color: #ddd;
+  color: #ddd;
 }
 
+.active {
+  background-color: #6664ff !important;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+}
 
+.control-buttons {
+  margin: 28px 18%;
+  position: absolute;
+  bottom: 0;
+}
+
+.control-buttons span {
+  margin: 0 10px;
+  padding: 6px 0;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.control-buttons span::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #f4586e;
+  transition: all 0.25s;
+  left: 0;
+  bottom: 0;
+  -webkit-transition: all 0.25s;
+}
+
+.control-buttons span:hover::after {
+  width: 100%;
+}
+
+footer {
+  text-align: center;
+}
+
+.github-links a {
+  display: inline-block;
+  height: 12px;
+  line-height: 12px;
+  background-color: #f7f9fb;
+  color: #000;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 4px 0;
+  border: 1px solid rgba(27, 31, 35, 0.35);
+}
+
+.github-links a i {
+  margin: 0 4px;
+}
+
+.github-links a span {
+  margin-right: 4px;
+}

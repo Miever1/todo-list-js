@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-
+    <title>Todo list - Miever</title>
+    <link rel="icon" href="images/favicon.png">
     <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/fonts.css">
-
-    
-
 </head>
+
 <body>
     <div id='app'>
-        <h1>Daily To-DO list manager</h1>
+        <h1>Daily To-Do list manager</h1>
         <div class="todo-warpper">
             <h2>
                 <span id="getDay">1</span><br>
@@ -28,22 +27,26 @@
             <div>
                 <p class="status-free">
                     <img src="./images/beer celebration.svg" alt="">
-                    Time to chill!  You have no todos.
+                    Time to chill! You have no todos.
                 </p>
             </div>
             <div>
                 <p class="status-busy"></p>
-                <ul class="todo-list" id="todolist">
-                    
-                </ul>
+                <ul class="todo-list" id="todolist"></ul>
+            </div>
+            <div class="control-buttons">
+                <span>Show Complete</span>
+                <span id="clear-btn">Clear All</span>
             </div>
         </div>
+        <footer>
+            <div class="github-links">
+                <a href="https://github.com/Miever1"><i class="icon-github"></i><span>Follow @miever1</span></a>
+                <a href="https://github.com/Miever1/todo-list"><i class="icon-star-full"></i><span>Star</span></a>
+            </div>
+        </footer>
     </div>
-    <footer>
-       
-    </footer>
-
-
     <script src="./js/index.js"></script>
 </body>
+
 </html>
