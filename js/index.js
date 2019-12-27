@@ -58,31 +58,42 @@ $("#btn-add").onclick = function () {
     $(".status-free")[0].style.display = "none";
     let msg = $("#input-todo").value;
     let childLi = document.createElement("li");
-    let childSpan = document.createElement("span");
-    let childSpan1 = document.createElement("span");
-    let childSpan2 = document.createElement("span");
+    let choiceSpan = document.createElement("input");
+    let choiceLable = document.createElement("label");
+    let textSpan = document.createElement("span");
+    let deleteSpan = document.createElement("span");
     let del_icon = document.createElement("i");
     let itemId = "item" + idNum;
     idNum++;
     childLi.setAttribute("id", itemId);
-    childSpan1.className = "todo-text";
-    childSpan2.className = "delete";
-    childSpan2.setAttribute("id", itemId + "-del");
-    childSpan1.innerHTML = msg;
+    choiceSpan.setAttribute("type", "checkbox");
+    textSpan.className = "todo-text";
+    deleteSpan.className = "delete";
+    deleteSpan.setAttribute("id", itemId + "-del");
+    choiceSpan.setAttribute("id", itemId + "_check");
+    choiceLable.setAttribute("for", itemId + "_check");
+    textSpan.innerHTML = msg;
     del_icon.className = "icon-bin2";
-    childSpan2.appendChild(del_icon);
-    childLi.appendChild(childSpan);
-    childLi.appendChild(childSpan1);
-    childLi.appendChild(childSpan2);
+    deleteSpan.appendChild(del_icon);
+    childLi.appendChild(choiceSpan);
+    childLi.appendChild(choiceLable);
+    childLi.appendChild(textSpan);
+    childLi.appendChild(deleteSpan);
     $(".todo-list")[0].appendChild(childLi);
+    $("#input-todo").value = "";
     //delete evevt listener
-    childSpan2.addEventListener('click', function () {
+    deleteSpan.addEventListener('click', function () {
         let deleteId = this.id.replace('-del', '');
         let delItem = $("#" + deleteId);
         delItem.parentNode.removeChild(delItem);
     })
+    //archived item listener
+    choiceSpan.addEventListener('click', function () {
+        let archivedId = choiceSpan.parentNode.id;
+        let archivedItem = $("#" + archivedId);
+        $("#archived").appendChild(archivedItem);
+    })
 }
-
 
 setInterval(() => {
     let list = $(".todo-list")[0];

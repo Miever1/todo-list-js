@@ -122,6 +122,7 @@ h2 span {
   box-sizing: border-box;
   position: relative;
   margin: 10px 0;
+  border-radius: 3px;
 }
 
 .todo-list li span {
@@ -131,13 +132,42 @@ h2 span {
   line-height: 20px;
 }
 
-.todo-list li span:first-child {
-  width: 20px;
+.todo-list input[type="checkbox"] {
+  display: none;
+}
+
+.todo-list input[type="checkbox"] + label {
+  position: absolute;
+  cursor: pointer;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  border: 1px solid #cfdcec;
   background-color: #fff;
 }
 
-.todo-list li span:nth-child(2) {
-  padding: 0 12px;
+.todo-list input[type="checkbox"]:checked + label::after {
+  position: absolute;
+  content: "";
+  top: 30%;
+  left: 50%;
+  height: 3px;
+  width: 6px;
+  border: solid #fc6c48;
+  border-top-width: medium;
+  border-right-width: medium;
+  border-bottom-width: medium;
+  border-left-width: medium;
+  border-width: 0 0 2px 2px;
+  transform-origin: center center;
+  transform: rotate(-45deg) translate(-50%, -50%);
+}
+
+.todo-list li span:first-of-type {
+  margin-left: 32px;
 }
 
 .todo-list li span:last-child {
@@ -150,6 +180,7 @@ h2 span {
   text-align: center;
   background-color: #f56468;
   overflow: hidden;
+  border-radius: 0 3px 3px 0;
 }
 
 .delete {
@@ -226,4 +257,17 @@ footer {
 
 .github-links a span {
   margin-right: 4px;
+}
+
+.archived li {
+  background-color: #fff;
+  color: #888;
+}
+
+.archived span:first-of-type {
+  text-decoration: line-through;
+}
+
+.checkbox {
+  display: none;
 }
