@@ -91,39 +91,82 @@ $("#btn-add").onclick = function () {
     choiceSpan.addEventListener('click', function () {
         let archivedId = choiceSpan.parentNode.id;
         let archivedItem = $("#" + archivedId);
-        $("#archived").appendChild(archivedItem);
+        if (choiceSpan.checked == true) {
+            $("#archived").appendChild(archivedItem);
+        }
+        else {
+            $("#todolist").appendChild(archivedItem);
+        }
     })
 }
 
-setInterval(() => {
-    let list = $(".todo-list")[0];
-    let list_length = list.getElementsByTagName("li").length;
+function checkItem() {
+    let list_length = $(".todo-list")[0].getElementsByTagName("li").length;
+    let archivedItem_length = $("#archived").getElementsByTagName("li").length;
+    let inputValue = $("#input-todo");
+    //check whether the added input is active
+    if (inputValue.value.length == 0) {
+        $("#btn-add").disabled = true;
+        $("#btn-add").className = "";
+    }
+    else {
+        $("#btn-add").disabled = false;
+        $("#btn-add").className = "active";
+    }
+    //check whether the todolist is blank
     if (list_length == 0) {
         $(".status-free")[0].style.display = "block";
         $(".status-busy")[0].style.display = "none";
     }
-    else if (list_length != 0) {
+    else {
         $(".status-busy")[0].style.display = "block";
+        $(".control-buttons")[0].style.display = "block";
         $(".status-busy")[0].innerText = "You have " + list_length + " pending items";
     }
-}, 100);
-
-//check if the input is active
-$("#input-todo").oninput = function () {
-    let inputValue = $("#input-todo");
-    if (inputValue.value.length != 0) {
-        $("#btn-add").className = "active";
+    //check whether the archived list is blank
+    if (archivedItem_length == 0) {
+        $("#showComplete-btn").style.display = "none";
     }
     else {
-        $("#btn-add").className = "";
+        $("#showComplete-btn").style.display = "inline-block";
+    }
+    //calculate archivedRate
+    let archivedRate = (archivedItem_length / (archivedItem_length + list_length)) * 100;
+    archivedRate = archivedRate.toString().split(".")[0];
+    if (archivedItem_length != 0) {
+        $(".status")[0].innerHTML = "Completed tasks:" + archivedRate + "%";
+    }
+    else {
+        $(".status")[0].innerHTML = "";
     }
 }
 
+//clear button function
 $("#clear-btn").onclick = function () {
     $("#todolist").innerHTML = "";
+    $("#archived").innerHTML = "";
+    $(".status")[0].innerHTML = "";
+    $(".control-buttons")[0].style.display = "none";
+}
+
+//showComplete button function
+let showCompleteFlag = true;
+$("#showComplete-btn").onclick = function () {
+    if (showCompleteFlag == true) {
+        this.innerHTML = "Hide Complete";
+        $("#archived").style.display = "block";
+        $(".status")[0].style.display = "block";
+    }
+    else {
+        this.innerHTML = "Show Complete";
+        $("#archived").style.display = "none";
+        $(".status")[0].style.display = "none";
+    }
+    showCompleteFlag = -showCompleteFlag;
 }
 
 settingTime();
-
-
+setInterval(() => {
+    checkItem();
+}, 100);
 

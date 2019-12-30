@@ -97,8 +97,10 @@ h2 span {
   font-weight: 600;
 }
 
-.btn-active {
-  background-color: red !important;
+.active {
+  background-color: #6664ff !important;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
 }
 
 .status-free {
@@ -198,20 +200,18 @@ h2 span {
   color: #ddd;
 }
 
-.active {
-  background-color: #6664ff !important;
-  transition: all 0.5s;
-  -webkit-transition: all 0.5s;
-}
-
 .control-buttons {
-  margin: 28px 18%;
+  width: 360px;
+  box-sizing: border-box;
+  margin: 28px 0;
   position: absolute;
   bottom: 0;
+  left: 20px;
+  text-align: center;
 }
 
 .control-buttons span {
-  margin: 0 10px;
+  margin-right: 10px;
   padding: 6px 0;
   font-weight: bold;
   cursor: pointer;
@@ -269,5 +269,13 @@ footer {
 }
 
 .checkbox {
+  display: none;
+}
+
+#archived {
+  display: none;
+}
+
+.status {
   display: none;
 }
